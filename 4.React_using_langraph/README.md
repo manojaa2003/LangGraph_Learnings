@@ -25,27 +25,6 @@ The agent will search the web for the latest SpaceX launch date, get the current
 
 ## How It Works
 
-```
-                ┌─────────────────┐
-                │  reasoning_node  │◀────────────┐
-                │  (LLM decides:   │              │
-                │   act or finish) │              │
-                └────────┬─────────┘              │
-                          │                        │
-              AgentFinish?│                        │
-              ┌───────────┴───────────┐            │
-              │ YES                   │ NO         │
-              ▼                       ▼            │
-            END               ┌──────────────┐     │
-        (final answer)         │   act_node   │     │
-                                │ (run the     │     │
-                                │  chosen tool)│     │
-                                └──────┬───────┘     │
-                                       │              │
-                                       └──────────────┘
-                              intermediate_steps accumulate
-```
-
 1. **`reasoning_node`** — invokes the ReAct agent runnable (Gemini 2.5 Flash + ReAct prompt from LangChain Hub). The LLM looks at the input and any prior tool outputs, then decides either to call a tool (`AgentAction`) or finish (`AgentFinish`).
 2. **`act_node`** — looks up the chosen tool by name, invokes it with the LLM-provided input, and appends `(action, output)` to `intermediate_steps`.
 3. **`should_continue`** — a conditional edge: if the outcome is `AgentFinish`, the graph ends; otherwise it loops back to `reasoning_node` with the new observation in context.
