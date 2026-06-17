@@ -390,6 +390,25 @@ This is important because the `add_messages` reducer expects a **list** of messa
 - **SQLite** — Lightweight local database for persistent memory (file 4)
 
 ---
+## Key Dependencies & Versions
+
+| Package | Version |
+|---|---|
+| `langchain` | 0.3.19 |
+| `langchain-community` | 0.3.18 |
+| `langchain-core` | 0.3.86 |
+| `langchain-google-genai` | 2.0.9 |
+| `langchain-groq` | 0.2.4 |
+| `langchain-text-splitters` | 0.3.11 |
+| `google-ai-generativelanguage` | 0.6.15 |
+| `google-generativeai` | 0.8.6 |
+| `groq` | 0.37.1 |
+| `langgraph` | — |
+| `pydantic` | 2.13.4 |
+| `python-dotenv` | 1.2.2 |
+| `typing_extensions` | 4.15.0 |
+
+---
 
 ## 📚 What to Learn Next
 
